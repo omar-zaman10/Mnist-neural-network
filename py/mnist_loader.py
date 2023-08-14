@@ -1,17 +1,3 @@
-"""
-Library from mnielsen neural-networks-and-deep-learning open source repository
-with slight modifications and an additional show_image function to show a grayscale
-image from the input data and print out its output label
-
-mnist_loader
-~~~~~~~~~~~~
-
-A library to load the MNIST image data.  For details of the data
-structures that are returned, see the doc strings for ``load_data``
-and ``load_data_wrapper``.  In practice, ``load_data_wrapper`` is the
-function usually called by our neural network code.
-"""
-
 #### Libraries
 # Standard library
 import _pickle as cPickle
@@ -40,10 +26,7 @@ def load_data():
     The ``validation_data`` and ``test_data`` are similar, except
     each contains only 10,000 images.
 
-    This is a nice data format, but for use in neural networks it's
-    helpful to modify the format of the ``training_data`` a little.
-    That's done in the wrapper function ``load_data_wrapper()``, see
-    below.
+
     """
     f = gzip.open('../data/mnist.pkl.gz', 'rb')
     training_data, validation_data, test_data = cPickle.load(f,encoding='latin1')
