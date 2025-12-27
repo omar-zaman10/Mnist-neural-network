@@ -17,7 +17,7 @@ using namespace std;
 using namespace rapidjson;
 
 unordered_map<int, xt::xarray<double> > biases_loader(){
-    ifstream ifs { "../data/biases.json" };
+    ifstream ifs { "data/biases.json" };
     if ( ifs.is_open() )
     {
         cout <<"Opened json biases data file for reading" << endl;
@@ -63,7 +63,7 @@ unordered_map<int, xt::xarray<double> > biases_loader(){
 
 
 unordered_map<int, xt::xarray<double>>  weights_loader(){
-    ifstream ifs { "../data/weights.json" };
+    ifstream ifs { "data/weights.json" };
     if ( ifs.is_open() )
     {
         cout <<"Opened json weights data file for reading" << endl;

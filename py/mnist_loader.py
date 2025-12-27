@@ -1,19 +1,17 @@
-#### Libraries
-# Standard library
 import _pickle as cPickle
 import gzip
-
-# Third-party libraries
-import numpy as np
-from PIL import Image
 import json
 
+import numpy as np
+from PIL import Image
+
+
 def load_data():
-   
-    f = gzip.open('../data/mnist.pkl.gz', 'rb')
-    training_data, validation_data, test_data = cPickle.load(f,encoding='latin1')
+    f = gzip.open("data/mnist.pkl.gz", "rb")
+    training_data, validation_data, test_data = cPickle.load(f, encoding="latin1")
     f.close()
     return (training_data, validation_data, test_data)
+
 
 def load_data_wrapper():
     """Return a tuple containing ``(training_data, validation_data,
@@ -43,6 +41,7 @@ def load_data_wrapper():
     test_data = zip(test_inputs, te_d[1])
     return (training_data, validation_data, test_data)
 
+
 def vectorized_result(j):
     """Return a 10-dimensional unit vector with a 1.0 in the jth
     position and zeroes elsewhere.  This is used to convert a digit
@@ -52,41 +51,35 @@ def vectorized_result(j):
     e[j] = 1.0
     return e
 
+
 def show_image(arr, label):
     """Show the grayscale image of the input data and print out the label"""
 
-    mat = np.reshape(arr,(28,28))
-    img = Image.fromarray(np.uint8(mat * 255) , 'L')
-    img = img.resize((140,140))
+    mat = np.reshape(arr, (28, 28))
+    img = Image.fromarray(np.uint8(mat * 255), "L")
+    img = img.resize((140, 140))
     print(label)
     img.show()
 
-def json_dump(data,labels,name):
 
+def json_dump(data, labels, name):
     """Creat json data file to be used for access"""
-    hashmap = {'input_data':data,'labels':labels}
+    hashmap = {"input_data": data, "labels": labels}
 
-
-    with open(name, 'w', encoding='utf-8') as f:
+    with open(name, "w", encoding="utf-8") as f:
         json.dump(hashmap, f, ensure_ascii=False, indent=4)
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     training_data, validation_data, test_data = load_data()
-    print(f'Loaded Data!')
 
-    
     training_data_array = training_data[0].tolist()
 
     training_labels = training_data[1].tolist()
 
-    json_dump(training_data_array,training_labels,'../data/training_data.json')
-    
+    json_dump(training_data_array, training_labels, "data/training_data.json")
 
     for i in range(1):
-      
-        arr, label = test_data[0][i],test_data[1][i]
+        arr, label = test_data[0][i], test_data[1][i]
 
         show_image(arr, label)

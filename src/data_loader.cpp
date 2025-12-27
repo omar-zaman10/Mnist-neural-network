@@ -18,7 +18,7 @@ using namespace rapidjson;
 
 tuple<xt::xarray<double>,xt::xarray<double>> JsonLoader(){
     
-    ifstream ifs { "../data/training_data.json" };
+    ifstream ifs { "data/training_data.json" };
     if ( ifs.is_open() )
     {
         cout <<"Opened json training_data file for reading" << endl;
