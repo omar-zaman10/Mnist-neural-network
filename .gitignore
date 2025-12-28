@@ -2,3 +2,5 @@
 data/biases.json
 data/weights.json
 data/training_data.json
+obj
+main
