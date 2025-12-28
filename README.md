@@ -1,7 +1,25 @@
 # Mnist-neural-network
 Making a neural network in both Python and C++ and training it to the Mnist database
 
-mnist_loader.py creates the training_data.json.gz file which will be used in the c++ network
+## Python usage
 
-The weights and biases from the python network.py file can be saved as json files as well and loaded to both
-the network.py and network.cc
+```
+python3 py/network.py
+```
+
+## C++ usage
+
+1. Load the training data
+    ```
+    python3 py/mnist_loader.py
+    ```
+
+2. Compile using the Makefile
+    ```
+    make
+    ```
+
+3. Run the executable
+    ```
+    ./main
+    ```

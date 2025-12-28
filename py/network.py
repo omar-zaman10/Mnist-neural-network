@@ -165,7 +165,7 @@ class NeuralNet:
     def train(self, training_data):
         self._initialise_data(training_data)
         self._initialise_weights()
-        self.load_from_json()
+        #self.load_from_json()
 
         num_batches = len(input_data) / self._batch_size
 
