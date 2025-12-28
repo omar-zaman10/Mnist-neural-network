@@ -15,7 +15,7 @@ std::tuple<xt::xarray<double>,xt::xarray<double>> training_data_loader() {
     } else {
         throw std::runtime_error{
             "Could not open file for reading!\n\
-            Run gzip data/training_data.json.gz"
+            Create data/training_data.json file with py/mnist_loader.py\n"
         };
     }
 

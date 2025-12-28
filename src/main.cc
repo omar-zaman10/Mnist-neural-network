@@ -3,9 +3,9 @@
 #include "network.h"
 
 int main() {    
-    Network nn;
+    auto neural_network = Network{};
     auto [input_data, labels] = training_data_loader();
-    nn.train(input_data,labels);
+    neural_network.train(input_data,labels);
 
     // std::unordered_map<int, xt::xarray<double> > biases = biases_loader();
     // std::unordered_map<int, xt::xarray<double>> weights =  weights_loader();
