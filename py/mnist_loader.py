@@ -63,10 +63,8 @@ def show_image(arr, label):
 
 
 def json_dump(data, labels, name):
-    """Creat json data file to be used for access"""
     hashmap = {"input_data": data, "labels": labels}
-
-    with open(name, "w", encoding="utf-8") as f:
+    with gzip.open(name, "wt", encoding="utf-8") as f:
         json.dump(hashmap, f, ensure_ascii=False, indent=4)
 
 
@@ -77,7 +75,7 @@ if __name__ == "__main__":
 
     training_labels = training_data[1].tolist()
 
-    json_dump(training_data_array, training_labels, "data/training_data.json")
+    json_dump(training_data_array, training_labels, "data/training_data.json.gz")
 
     for i in range(1):
         arr, label = test_data[0][i], test_data[1][i]
